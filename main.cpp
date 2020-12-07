@@ -28,7 +28,7 @@ void problem3(){
     int flag = 0;
     while(i >= 0){
         if(flag == 0 && str[i] != ' ' && !check_(str[i])){ end = i; flag = 1;}
-        else if(flag == 1 && str[i] == ' '){start = i + 1; break;}
+        else if(flag == 1 && (str[i] == ' ' || check_(str[i]))){start = i + 1; break;}
         i--;
     }
 
@@ -44,7 +44,7 @@ void problem3(){
             flag = 1;
             start = i;
         }
-        else if(flag && str[i] == ' '){
+        else if(flag && (str[i] == ' ' || check_(str[i]))){
             flag = 0;
             end = i - 1;
             char *check_word = (char *) malloc(sizeof(char) * MAXSIZE);
